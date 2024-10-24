@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 
-function Header() {
+function Header({score}) {
+    
     return (
         <div className="flex justify-between items-center p-9">
             <div>
@@ -8,9 +10,9 @@ function Header() {
                 </h1>
                 <p>Get points by clicking on an image but donot click on any more than once!</p>
             </div>
-            <div className="">
-                <h2>Score:0</h2>
-                <h2>Best Score:0</h2>
+            <div className="text-2xl font-bold ">
+                <h1>Score:{score}</h1>
+                
             </div>
             
         </div>

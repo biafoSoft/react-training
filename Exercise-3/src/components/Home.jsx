@@ -1,32 +1,15 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext} from "react"
 import { Link } from "react-router-dom";
 import { ShopContext } from "./Layout";
 
 function Home() {
-  const [cartItems, setCartItems] = useState([]);
-  const {addToCart} = useContext(ShopContext);
-  useEffect(()=>{
-     fetch('https://fakestoreapi.com/products', { mode: "cors" })
-     .then((response)=>{
-      if (!response.ok) { 
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json()})
-     .then((data)=>{
-      console.log(data);
-      setCartItems(data);
-     })
-     .catch((error)=>console.log(error))
-     .finally(()=>console.log('fetching data completed'))
-
-  },[]);
   
- 
+  const {products, addToCart} = useContext(ShopContext);
 
   return (
       <div className="flex flex-wrap  gap-4 m-8 mt-20">
           {
-            cartItems.map((cart, index)=>{
+            products.map((cart, index)=>{
               const shortDescription = cart.description.split(" ").slice(0, 6).join(" ") + "...";
               return(
                 <div className="card bg-base-100 w-96 shadow-xl" key={index}>

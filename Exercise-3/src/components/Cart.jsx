@@ -18,7 +18,7 @@ function Cart() {
 
   return (
     <div className="mt-24 m-10">
-        <h3 className="text-center text-2xl font-bold p-5">My Bag</h3>
+        <h3 className="text-center text-2xl font-bold p-5">My Shopping Bag</h3>
         <div>
             {
                 myCartItems.map((item, index)=>{
